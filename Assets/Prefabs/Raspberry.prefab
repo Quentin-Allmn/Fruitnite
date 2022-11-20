@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd94a0c476466145873654141a7f80b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionFx: {fileID: 3473178432750049276, guid: cf80c4891e049f64da7c3b40701b4ea8, type: 3}
+  destructionFx: {fileID: 5157019721930921809, guid: c944c95ddf020a944a768188ce736b41, type: 3}
   flash: {fileID: 3064468301561091019, guid: 4f4bc7f357ffbb541a1d1ef336f79ab5, type: 3}

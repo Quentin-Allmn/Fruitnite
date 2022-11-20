@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject laser;
 
+    public AudioSource audioSource;
+    public AudioClip sound;
+
+
     GameManager gameManager;
 
     bool canShoot = false;
@@ -100,6 +104,7 @@ public class PlayerController : MonoBehaviour
         bullet.GetComponent<Bullet>().ShootDirection(aimDirection);
         laser.SetActive(false);
         gameManager.NombreTentative -= 1;
+        audioSource.PlayOneShot(sound);
     }
 
     public void GameOver()

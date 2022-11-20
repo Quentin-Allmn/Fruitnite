@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd94a0c476466145873654141a7f80b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionFx: {fileID: 3382330001637694176, guid: 5668238180fc7494ebf33a19cd57604f, type: 3}
+  destructionFx: {fileID: 5157019721930921809, guid: bc33ba8401a11e94497c9046021661b0, type: 3}
   flash: {fileID: 3064468301561091019, guid: 4f4bc7f357ffbb541a1d1ef336f79ab5, type: 3}
 --- !u!135 &2837482620381637520
 SphereCollider:

@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Flash flash;
 
+    public AudioSource audioSource;
+    public AudioClip sound;
 
     //public float spawnRate = 0.5F;
     //private float nextSpawn = 0.0F;
@@ -105,7 +107,8 @@ public class GameManager : MonoBehaviour
 
             FindObjectOfType<Destroytarget>().Destruction();
             CamShake.gameObject.SetActive(true);
-
+            //audioSource.PlayOneShot(sound);
+            AudioSource.PlayClipAtPoint(sound, transform.position);
             canDestroyTarget = false;
             Invoke("Newtarget", 2f);
         }
