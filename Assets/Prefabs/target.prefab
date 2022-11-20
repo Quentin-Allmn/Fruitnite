@@ -110,5 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98ec25a116db294e98937721f51c8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CamShake: {fileID: 0}
-  destructionFx: {fileID: 2979432262038239709, guid: e3a3ba9b485d3fe49827f01d34b1532e, type: 3}
+  destructionFx: {fileID: 2132170572509634263, guid: 6992fe2458987054b8dffb66da11da4c, type: 3}

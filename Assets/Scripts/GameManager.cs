@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
     Text txtTentatives;
 
     [SerializeField]
-    GameObject gameOver;
+    Image gameOver;
+
+    [SerializeField]
+    Image titre;
 
     [SerializeField]
     public int NombreTentative = 1;
@@ -96,7 +99,7 @@ public class GameManager : MonoBehaviour
             case 0: nbFruitMax = 3;
                 break;
             case 10: nbFruitMax = 4;
-                txtScore.color = new Color(255f, 0f, 0f);
+                //txtScore.color = new Color(255f, 0f, 0f);
                 break;
             case 20: nbFruitMax = 5;
                 break;
@@ -116,7 +119,7 @@ public class GameManager : MonoBehaviour
         if (NombreTentative <= 0 && canDestroyTarget == true)
         {
             FindObjectOfType<PlayerController>().GameOver();
-            gameOver.SetActive(true);
+            
         }
 
     }

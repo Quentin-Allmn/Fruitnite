@@ -41,6 +41,9 @@ public class Bullet_UI : MonoBehaviour
                 bullets[2].SetActive(true);
                 bullets[1].SetActive(true);
                 bullets[0].SetActive(true);
+                bullets[2].GetComponent<Image>().color = new Color(255, 255, 255);
+                bullets[1].GetComponent<Image>().color = new Color(255, 255, 255);
+                bullets[0].GetComponent<Image>().color = new Color(255, 255, 255);
                 break;
 
             case 9:
