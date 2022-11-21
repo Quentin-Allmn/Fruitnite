@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 190
+  txtCombo: {fileID: 7189587642249162682, guid: 25f43d3b6e46d8c498acde230ec3502a, type: 3}
 --- !u!54 &4241267497095615445
 Rigidbody:
   m_ObjectHideFlags: 0

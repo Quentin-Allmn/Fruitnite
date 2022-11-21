@@ -13,11 +13,16 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Text txtTentatives;
 
-    [SerializeField]
-    Image gameOver;
+
+    [SerializeField] Text txtRaspberry;
+
+    [SerializeField]  Text txtCombo;
 
     [SerializeField]
-    Image titre;
+    GameObject gameOver;
+
+    [SerializeField]
+    GameObject titre;
 
     [SerializeField]
     public int NombreTentative = 1;
@@ -62,8 +67,19 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Flash flash;
 
+    [SerializeField]
+    Text txtBestScore;
+
+    [SerializeField] DynamicJoystick joystick;
+
     public AudioSource audioSource;
     public AudioClip sound;
+
+    Rasberry raspberry;
+
+    public int comboFruit;
+
+    public bool raspberryBool = false;
 
     //public float spawnRate = 0.5F;
     //private float nextSpawn = 0.0F;
@@ -75,20 +91,31 @@ public class GameManager : MonoBehaviour
         GameOver,
     }
 
+    public State gameState = State.Begining;
     private void Awake()
     {
         fruits = new List<Fruit>();
+        raspberry = FindObjectOfType<Rasberry>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         Newtarget();
+
+        txtBestScore.text = "Best :" + PlayerPrefs.GetInt("Score", 0).ToString();
+
+        gameOver.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (joystick.Direction.magnitude > 0 && gameState == State.Begining)
+        {
+            StartGame();
+        }
 
         txtScore.text = score.ToString();
 
@@ -122,6 +149,55 @@ public class GameManager : MonoBehaviour
             
         }
 
+        switch (comboFruit)
+        {
+            case 2:
+                txtCombo.text = "Combo +" + comboFruit.ToString() + "!";
+                txtCombo.gameObject.SetActive(true);
+                comboFruit = 0;
+                Invoke("MaskText", 1.5f);
+                score = score + 2;
+                break;
+            case 3:
+                txtCombo.text = "Combo +" + comboFruit.ToString() + "!";
+                txtCombo.gameObject.SetActive(true);
+                comboFruit = 0;
+                Invoke("MaskText", 1.5f);
+                score = score + 3;
+                break;
+            case 4:
+                txtCombo.text = "Combo +" + comboFruit.ToString() + "!";
+                txtCombo.gameObject.SetActive(true);
+                comboFruit = 0;
+                Invoke("MaskText", 1.5f);
+                score = score + 4;
+                break;
+            default :
+                comboFruit = 0;
+                break;
+        }
+
+        if (raspberryBool == true)
+        {
+            Debug.Log("Collided");
+            txtRaspberry.text = "+ 10 !";
+            txtRaspberry.gameObject.SetActive(true);
+            Invoke("MaskText2", 1.5f);
+            raspberryBool = false;
+            score = score + 10;
+        }
+
+    }
+
+    void StartGame()
+    {
+        gameState = State.InGame;
+
+        BroadcastMessage("OnStartGame", SendMessageOptions.DontRequireReceiver);
+
+        titre.SetActive(false);
+
+        txtBestScore.gameObject.SetActive(false);
     }
 
     void Newtarget()
@@ -198,6 +274,29 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+
+        gameOver.SetActive(true);
+
+        gameState = State.GameOver;
+
+        BroadcastMessage("OnGameOver", SendMessageOptions.DontRequireReceiver);
+
         Invoke("Restart", 2f);
+
+        int bestScore = PlayerPrefs.GetInt("Score", 0);
+
+        if (score > bestScore)
+        {
+            PlayerPrefs.SetInt("Score", score);
+        }
+    }
+
+    void MaskText()
+    {
+        txtCombo.gameObject.SetActive(false);
+    }
+    void MaskText2()
+    {
+        txtRaspberry.gameObject.SetActive(false);
     }
 }

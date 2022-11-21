@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
@@ -10,25 +11,17 @@ public class Bullet : MonoBehaviour
 
     GameManager gameManager;
 
-    private int comboFruit;
+
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        comboFruit = 0;
+        gameManager.comboFruit = 0;
     }
 
     private void Update()
     {
 
-        if (comboFruit == gameManager.nombreDeFruits)
-        {
-            Debug.Log("ComboFruit");
-        }
-        if (comboFruit >= 2)
-        {
-            Debug.Log("Combo x2");
-        }
     }
 
 
@@ -50,14 +43,19 @@ public class Bullet : MonoBehaviour
 
             //Destroy(Impact, 2);
             //Debug.Log("Target collison");
+           // gameManager.comboFruit = 0;
             Destroy(gameObject);
         }
 
         if (collision.gameObject.tag == "Fruit")
         {
 
-            comboFruit += 1;
+            gameManager.comboFruit += 1;
+        }
 
+        if (collision.gameObject.tag == "Raspberry")
+        {
+            gameManager.raspberryBool = true;
         }
 
     }

@@ -7,32 +7,29 @@ public class Rasberry : MonoBehaviour
 {
     GameManager gameManager;
 
-    [SerializeField] Text raspberryScore;
-
-    private Vector3 textPosition;
+    public bool collided = false;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        textPosition = new Vector3(-14f, 1522, 2966);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet" && collided == false) ;
         {
 
-            gameManager.score += 10;
-
-            var TxtRsbrScore = Instantiate(raspberryScore, textPosition, Quaternion.identity) ;
-            Destroy(TxtRsbrScore, 2);
+ 
         }
     }
+
+
 }

@@ -8,7 +8,7 @@ TagManager:
   - Target
   - Fruit
   - Wall
-  - Rasberry
+  - Raspberry
   layers:
   - Default
   - TransparentFX
