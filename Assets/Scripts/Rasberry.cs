@@ -22,14 +22,5 @@ public class Rasberry : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Bullet" && collided == false) ;
-        {
-
- 
-        }
-    }
-
 
 }

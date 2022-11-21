@@ -11,6 +11,13 @@ public class Target : MonoBehaviour
 
     Vector3 rot = new Vector3(0, 360, 0);
 
+    GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +29,9 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameManager.score > 100)
+        {
+            rotationDuration = 1.75f;
+        }
     }
 }

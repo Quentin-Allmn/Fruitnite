@@ -34,6 +34,7 @@ public class Fruit : MonoBehaviour
 
             gameManager.score += 1;
             gameManager.fruits.Remove(this);
+            //gameManager.NombreTentative -= 1;
 
             flash.gameObject.SetActive(true);
 

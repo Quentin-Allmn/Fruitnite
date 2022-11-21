@@ -45,6 +45,7 @@ public class Bullet : MonoBehaviour
             //Debug.Log("Target collison");
            // gameManager.comboFruit = 0;
             Destroy(gameObject);
+            gameManager.NombreTentative -= 1;
         }
 
         if (collision.gameObject.tag == "Fruit")

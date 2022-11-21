@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
         bullet.transform.position = transform.position;
         bullet.GetComponent<Bullet>().ShootDirection(aimDirection);
         laser.SetActive(false);
-        gameManager.NombreTentative -= 1;
+        //gameManager.NombreTentative -= 1;
         audioSource.PlayOneShot(sound);
     }
 

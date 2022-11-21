@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]  Text txtCombo;
 
+    [SerializeField] Text txtGameOver;
+
     [SerializeField]
     GameObject gameOver;
 
@@ -105,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         txtBestScore.text = "Best :" + PlayerPrefs.GetInt("Score", 0).ToString();
 
+        txtGameOver.gameObject.SetActive(false);
         gameOver.SetActive(false);
     }
 
@@ -276,6 +279,9 @@ public class GameManager : MonoBehaviour
     {
 
         gameOver.SetActive(true);
+
+        txtGameOver.text = "Your score :" + score.ToString();
+        txtGameOver.gameObject.SetActive(true);
 
         gameState = State.GameOver;
 
