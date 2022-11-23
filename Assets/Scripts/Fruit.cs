@@ -10,6 +10,9 @@ public class Fruit : MonoBehaviour
 
     [SerializeField] Flash flash;
 
+    public AudioSource audioSource;
+    public AudioClip sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class Fruit : MonoBehaviour
         {
             var Impact = Instantiate(destructionFx, collision.contacts[0].point, Quaternion.identity) as GameObject;
             Destroy(Impact, 2);
+
+            AudioSource.PlayClipAtPoint(sound, transform.position);
 
             Destroy(collision.gameObject);
             Destroy(gameObject);

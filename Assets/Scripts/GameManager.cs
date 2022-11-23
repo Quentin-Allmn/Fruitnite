@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject fruit4;
 
-    [SerializeField]
-    CameraShake CamShake;
+    //[SerializeField]
+    //CameraShake CamShake;
 
     [SerializeField]
     int probaRasberry = 8;
@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     Text txtBestScore;
+
+    [SerializeField] GameObject camShake;
 
     [SerializeField] DynamicJoystick joystick;
 
@@ -139,7 +141,7 @@ public class GameManager : MonoBehaviour
         {
 
             FindObjectOfType<Destroytarget>().Destruction();
-            CamShake.gameObject.SetActive(true);
+            Instantiate(camShake, targetZone);
             //audioSource.PlayOneShot(sound);
             AudioSource.PlayClipAtPoint(sound, transform.position);
             canDestroyTarget = false;
@@ -208,7 +210,7 @@ public class GameManager : MonoBehaviour
 
         int randomRasberry = Random.Range(0, probaRasberry);
 
-        CamShake.gameObject.SetActive(false);
+       // CamShake.gameObject.SetActive(false);
 
         int randomNbFruit = Random.Range(nbFruitMin, nbFruitMax);
 

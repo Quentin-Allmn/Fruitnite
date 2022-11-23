@@ -11,7 +11,10 @@ public class Bullet : MonoBehaviour
 
     GameManager gameManager;
 
+    public AudioSource audioSource;
+    public AudioClip sound;
 
+    private bool onlyTarget = true;
 
     private void Awake()
     {
@@ -48,15 +51,22 @@ public class Bullet : MonoBehaviour
             gameManager.NombreTentative -= 1;
         }
 
+        if (collision.gameObject.tag == "Target" && onlyTarget == true)
+        {
+            AudioSource.PlayClipAtPoint(sound, transform.position);
+        }
+
         if (collision.gameObject.tag == "Fruit")
         {
 
             gameManager.comboFruit += 1;
+            onlyTarget = false;
         }
 
         if (collision.gameObject.tag == "Raspberry")
         {
             gameManager.raspberryBool = true;
+            onlyTarget = false;
         }
 
     }
