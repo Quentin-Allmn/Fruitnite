@@ -24,11 +24,7 @@ public class CameraShake : MonoBehaviour
 		{
 			//camTransform = GetComponent(typeof(Transform)) as Transform;
 			camTransform = FindObjectOfType<Camera>().transform;
-			Debug.Log("camTransform" + camTransform);
 		}
-
-		Debug.Log("Coucou");
-
 	}
 
 	void OnEnable()

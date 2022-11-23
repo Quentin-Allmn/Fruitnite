@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     Vector3 aimDirection;
 
     [SerializeField]
-    DynamicJoystick joystick;
+    FloatingJoystick joystick;
 
     [SerializeField]
     float moveSpeed = 0;
@@ -48,8 +48,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         gameManager = FindObjectOfType<GameManager>();
 
-        //Health = 100f;
-
         aimDirection = bulletSpawn.transform.forward;
 
     }
@@ -57,24 +55,50 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        laser.SetActive(false);
+        laser.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetMouseButton(0))
+        //{
+        //    Debug.Log("Touch");
+
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    // Save the info
+        //    RaycastHit hit;
+        //    ray.direction = new Vector3(0, 1, 0);
+            
+            
+        //    // You successfully hi
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        // Find the direction to move in
+        //        Vector3 pos3d = hit.point - transform.position;
+
+        //        // Make it so that its only in x and y axis
+        //        pos3d.y = 0; // No vertical movement
+
+        //        GameObject.Find("Cube (1)").transform.position = pos3d;
+
+        //        Debug.Log(pos3d);
+        //    }
+            
+        //}
 
         if (joystick.Direction.magnitude > 0)
         {
             // Vecteur de direction de déplacement
             moveDirection = new Vector3(joystick.Direction.x, joystick.Direction.y , 0).normalized;
-            moveSpeed = Mathf.Lerp(moveSpeed, speedMax, acceleration) * joystick.Direction.magnitude;
+            moveSpeed = speedMax * joystick.Direction.magnitude;
             laser.SetActive(true);
             canShoot = true;
         }
         else
         {
-            moveSpeed = Mathf.Lerp(moveSpeed, 0, decceleration);
+            //moveSpeed = Mathf.Lerp(moveSpeed, 0, decceleration);
+            moveSpeed = 0;
 
             if (canShoot == true)
             {
@@ -103,7 +127,6 @@ public class PlayerController : MonoBehaviour
         bullet.transform.position = transform.position;
         bullet.GetComponent<Bullet>().ShootDirection(aimDirection);
         laser.SetActive(false);
-        //gameManager.NombreTentative -= 1;
         audioSource.PlayOneShot(sound);
     }
 
