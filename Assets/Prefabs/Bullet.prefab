@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 190
+  smokeVFX: {fileID: 8389901015110405540, guid: bf50609e418eaf54fb903915533b6082, type: 3}
   audioSource: {fileID: 4092475415776466374}
   sound: {fileID: 8300000, guid: 307037d8ad6d0ee4ca8705671aebe2cc, type: 3}
 --- !u!54 &4241267497095615445

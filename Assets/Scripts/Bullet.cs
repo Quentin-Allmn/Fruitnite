@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed = 10;
 
+    [SerializeField] GameObject smokeVFX;
+
     // [SerializeField] GameObject fx2;
 
     GameManager gameManager;
@@ -54,6 +56,11 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Target" && onlyTarget == true)
         {
             AudioSource.PlayClipAtPoint(sound, transform.position);
+
+            Vector3 coImpact = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,7);
+
+            var Smoke = Instantiate(smokeVFX, coImpact, Quaternion.identity) as GameObject;
+            Destroy(Smoke, 1);
         }
 
         if (collision.gameObject.tag == "Fruit")
