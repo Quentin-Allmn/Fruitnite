@@ -1661,9 +1661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
   moveSpeed: 0
-  acceleration: 0.1
   speedMax: 10
-  decceleration: 0.1
   bulletPrefab: {fileID: 1515856133744971855, guid: 51232b113ea451541be9f5bf186d309b, type: 3}
   bulletSpawn: {fileID: 1807056266}
   laser: {fileID: 3124760761438191645}
@@ -2970,7 +2968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e438d4ed3caa04b4ea3218d98fe67a3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae2b09fd76f7a0a48bf1d8a2c7240907, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3120,7 +3118,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5, y: 0.3}
+  m_AnchoredPosition: {x: -0.5, y: 0.12}
   m_SizeDelta: {x: 29.32, y: 43.67}
   m_Pivot: {x: 0.49999982, y: 0.50000006}
 --- !u!114 &1498169989

@@ -15,14 +15,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float moveSpeed = 0;
 
-    [SerializeField]
-    float acceleration = 0.1f;
+    //[SerializeField]
+    //float acceleration = 0.1f;
 
     [SerializeField]
     float speedMax = 10;
 
-    [SerializeField]
-    float decceleration = 0.1f;
+    //[SerializeField]
+    //float decceleration = 0.1f;
 
     Rigidbody rb;
 
