@@ -12,6 +12,11 @@ public class ScriptBtnShop : MonoBehaviour
     [SerializeField] Image cadenasJaune;
     [SerializeField] Image cadenasViolet;
 
+    [SerializeField] Text PrixBleu;
+    [SerializeField] Text PrixVert;
+    [SerializeField] Text PrixJaune;
+    [SerializeField] Text PrixViolet;
+
     public void ResetPlayerPrefs()
     {
         PlayerPrefs.SetInt("LaserBleu", 0);
@@ -48,7 +53,7 @@ public class ScriptBtnShop : MonoBehaviour
         {
             PlayerPrefs.SetInt("LaserVert", 1);
             Debug.Log("Buy");
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 5);
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 10);
     }
         else
         {
@@ -63,7 +68,7 @@ public class ScriptBtnShop : MonoBehaviour
         {
             PlayerPrefs.SetInt("LaserJaune", 1);
             Debug.Log("Buy");
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 5);
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 15);
         }
         else
         {
@@ -77,7 +82,7 @@ public class ScriptBtnShop : MonoBehaviour
         {
             PlayerPrefs.SetInt("LaserViolet", 1);
             Debug.Log("Buy");
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 5);
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 20);
         }
         else
         {
@@ -90,18 +95,22 @@ public class ScriptBtnShop : MonoBehaviour
         if ( PlayerPrefs.GetInt("LaserBleu") == 1)
         {
             cadenasBleu.gameObject.SetActive(false);
+            PrixBleu.gameObject.SetActive(false);
         }
         if (PlayerPrefs.GetInt("LaserVert") == 1)
         {
             cadenasVert.gameObject.SetActive(false);
+            PrixVert.gameObject.SetActive(false);
         }
         if (PlayerPrefs.GetInt("LaserJaune") == 1)
         {
             cadenasJaune.gameObject.SetActive(false);
+            PrixJaune.gameObject.SetActive(false);
         }
         if (PlayerPrefs.GetInt("LaserViolet") == 1)
         {
             cadenasViolet.gameObject.SetActive(false);
+            PrixViolet.gameObject.SetActive(false);
         }
 
     }
